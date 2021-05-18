@@ -31,7 +31,7 @@ export default function App() {
       <stack.Navigator headerMode="none" screenOptions={{ cardStyle: { backgroundColor: '#FFF' } }}>
       
      
-      <stack.Screen name="UserIdentification" component={UserIdentification} />
+      <stack.Screen name="Login" component={Login} />
 
       </stack.Navigator>
     </NavigationContainer>
@@ -57,7 +57,7 @@ export default function App() {
 
 
          <stack.Screen name="Welcome" component={Welcome} />
-      <stack.Screen name="Login" component={Login} />
+    
       <stack.Screen name="PacienteHospital" component={PacienteHospital} />
        <stack.Screen name="LoginUser" component={LoginUser} />
 
