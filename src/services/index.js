@@ -15,5 +15,5 @@ connectDB();
 app.use(require('../routes/routes'));
 
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Server ok em http//:localhost: " + 3000)
+    console.log(process.env.PORT + 3000)
 });
