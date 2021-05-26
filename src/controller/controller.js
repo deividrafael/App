@@ -1,5 +1,5 @@
 var Userdb = require('../models/Users');
-//const authMiddleware = require("../middlewares/auth");
+
 
 
 //criando e salvando usuários
@@ -26,36 +26,44 @@ exports.create = async (req, res) => {
 }
 
 
-
 //retornando usuários
-exports.find = (req, res) => {
+exports.find = async (req, res)=>{
     //retornando um usuário
     if (req.query.id) {
         const id = req.query.id;
         Userdb.findById(id)
-            .then(data => {
-                if (!data) {
-                    res.status(404).send({ message: "Não foi encontardo usuário com id:" + id })
-                } else {
-                    res.send(data)
-                }
-            })
-            .catch(err => {
-                res.status(500).send({ message: err.message || "Erro ao consultar o usuário com id: " + id });
-            })
+        .then(data =>{
+            if(!data){
+                res.status(404).send({message: "Não foi encontardo usuário com id:" + id})
+            }else{
+                res.send(data)
+            }
+        })
+        .catch(err =>{
+            res.status(500).send({message: err.message || "Erro ao consultar o usuário com id: " + id});
+        })
     } else {
         //retornando usuários
         Userdb.find()
-            .then(user => {
-                console.log(user)
-                res.send(user)
-            }).catch(err => {
-                res.status(500).send({ message: err.message || "Algum erro ocorreu durante a consulta" });
-            })
+        .then(user=>{
+            console.log(user)
+            res.send(user)
+        }).catch(err=>{
+            res.status(500).send({message: err.message || "Algum erro ocorreu durante a consulta"});
+        })        
     }
-
+    
 }
 
+exports.find = (req,res) => {
+    Userdb.find()
+    .then(user=>{
+        console.log(user)
+        res.send(user)
+    }).catch(err=>{
+        res.status(500).send({message: err.message || "Algum erro ocorreu durante a consulta"});
+    })        
+}
 
 exports.show = (req, res) => {
 
@@ -120,7 +128,7 @@ exports.delete = (req, res) => {
 
 }
 
-exports.find = async (req, res) => {
+exports.findOne = async (req, res) => {
     // try {
     const { email, password } = req.body;
 
