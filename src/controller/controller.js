@@ -146,20 +146,5 @@ exports.find = async (req, res) => {
      
     
 
-        /*
-    
-        if (!(await user.compareHash(password))) {
-          return res.status(400).json({ error: "Invalid password" });
-        }
-    
-        
-      } catch (err) {
-        return res.status(400).json({ error: "User authentication failed" });
-      }
-    *///};
-
-
-
-//router.use(authMiddleware);
 
 
