@@ -9,6 +9,7 @@ exports.create = async (req, res) => {
 
     //novo usuário
     const user = await new Userdb({
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password
     })
