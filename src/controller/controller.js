@@ -1,11 +1,8 @@
 var Userdb = require('../models/Users');
 
-
-
 //criando e salvando usuários
 exports.create = async (req, res) => {
     //validação da requisição
-
 
     //novo usuário
     const user = await new Userdb({
