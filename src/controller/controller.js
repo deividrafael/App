@@ -146,9 +146,7 @@ exports.findOne = async (req, res) => {
     }
 
     return res.json({
-        user:{
-            email
-        },
+        user,
         token: user.generateToken()
     });
 
