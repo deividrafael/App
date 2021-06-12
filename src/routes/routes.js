@@ -4,12 +4,12 @@ const controller = require('../controller/controller')
 const auth = require('../middleware/auth')
 //API
 routes.post('/api/users',controller.create);
-routes.get('/api/users',auth,controller.find);
+routes.get('/userss',auth,controller.find);
 routes.put('/api/users/:id', auth,controller.update);
 routes.delete('/api/users/:id',controller.delete);
-routes.get('/api/users/:id',controller.show);
-routes.post('/auth',controller.findOne)
-routes.get('/users',controller.find);
+routes.get('/users/:email',controller.show);
+//routes.post('/auth',controller.findOne)
+routes.get('/user/:email',controller.findOne);
 
 module.exports = routes;
 

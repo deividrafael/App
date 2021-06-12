@@ -27,9 +27,9 @@ exports.create = async (req, res) => {
 //retornando usuários
 exports.find = async (req, res)=>{
     //retornando um usuário
-    if (req.query.id) {
-        const id = req.query.id;
-        Userdb.findById(id)
+    if (req.query.email) {
+        const id = req.query.email;
+        Userdb.findById(email)
         .then(data =>{
             if(!data){
                 res.status(404).send({message: "Não foi encontardo usuário com id:" + id})
@@ -65,10 +65,13 @@ exports.find = (req,res) => {
 
 exports.show = (req, res) => {
 
-    Userdb.findById(req.params.id)
+    const {email} = req.params
+
+    Userdb.findOne({email})
 
         .then(response => {
             if (response)
+
                 return res.status(200).json(response);
 
             else return res.status(404).json({ error: 'usuario nao encontrado' })
@@ -79,7 +82,6 @@ exports.show = (req, res) => {
             return res.status(500).json(error);
         });
 }
-
 
 //atualizando um usuario por id
 exports.update = (req, res) => {
@@ -144,11 +146,17 @@ exports.findOne = async (req, res) => {
     }
 
     return res.json({
-        user,
+        user:{
+            email
+        },
         token: user.generateToken()
     });
 
 }
+
+
+
+
 
 
 
