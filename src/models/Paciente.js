@@ -14,6 +14,7 @@ const pacienteSchema = new mongoose.Schema({
     pa:{type: String},
     description:{type: String},
     type:{type: String}, 
+    filatype:{type:String},
     createdAt: {type: Date, default: Date.now},
 })
 

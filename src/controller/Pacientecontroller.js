@@ -21,7 +21,8 @@ exports.create = async (req, res) => {
         ox: req.body.ox,
         pa: req.body.pa,
         description: req.body.description,
-        type: req.body.type
+        type: req.body.type,
+        filatype: req.body.filatype
     })
 
     //Salvando na base de dados
@@ -81,6 +82,26 @@ exports.show = (req, res) => {
     const {email} = req.params
 
     Paciente.findOne({email})
+
+        .then(response => {
+            if (response)
+
+                return res.status(200).json(response);
+
+            else return res.status(404).json({ error: 'paciente nao encontrado' })
+
+        })
+
+        .catch(error => {
+            return res.status(500).json(error);
+        });
+}
+
+exports.findfila = (req, res) => {
+
+    const {filatype} = req.params
+
+    Paciente.find({filatype})
 
         .then(response => {
             if (response)

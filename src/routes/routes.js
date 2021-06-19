@@ -29,6 +29,7 @@ routes.get('/api/paciente',Pacientecontroller.find);
 routes.get('/api/paciente/:email',Pacientecontroller.show);
 routes.delete('/api/paciente/:id',Pacientecontroller.delete);
 routes.put('/api/paciente/:id',Pacientecontroller.update);
+routes.get('/paciente/:filatype',Pacientecontroller.findfila);
 
 module.exports = routes;
 
