@@ -9,8 +9,6 @@ exports.create = async (req, res) => {
     const paciente = await new Paciente({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
-        password: req.body.password,
         contrato: req.body.contrato,
         tel: req.body.tel,
         cpf: req.body.cpf,
