@@ -21,6 +21,7 @@ routes.get('/api/hospital',Hospcontroller.find);
 routes.get('/api/hospital/:email',Hospcontroller.show);
 routes.delete('/api/hospital/:id',Hospcontroller.delete);
 routes.put('/api/hospital/:id',Hospcontroller.update);
+routes.post('/auth',Hospcontroller.findOne)
 
 
 //PACIENTE HOSPITAL
@@ -30,6 +31,7 @@ routes.get('/api/paciente/:email',Pacientecontroller.show);
 routes.delete('/api/paciente/:id',Pacientecontroller.delete);
 routes.put('/api/paciente/:id',Pacientecontroller.update);
 routes.get('/paciente/:filatype',Pacientecontroller.findfila);
+
 
 module.exports = routes;
 
